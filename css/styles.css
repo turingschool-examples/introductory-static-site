@@ -1,0 +1,101 @@
+/* whole page */
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.content {
+  width: 90%;
+  margin: auto;
+}
+
+
+/* main nav */
+
+header {
+  background: yellow;
+  height: 75px;
+}
+
+nav h1 {
+  text-indent: -9999px;
+  background: url(images/dog-icon.svg) no-repeat;
+  float: left;
+  height: 45px;
+  width: 45px;
+  margin-top: 12px;
+}
+
+
+nav ul {
+  float: right;
+}
+
+
+nav li {
+  display: inline-block;
+  padding: 30px 15px;
+}
+
+nav li:hover {
+  background: orange;
+}
+
+
+/* hero unit */
+
+
+#hero {
+  background: url(images/park.jpg) no-repeat;
+  background-size: cover;
+  width: 100%;
+  text-align: center;
+  padding: 50px 0;
+}
+
+#hero h1{
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+#hero img {
+  border-radius: 50%;
+  border: 5px solid green;
+  display: block;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+#hero a {
+  text-decoration: none;
+  background: white;
+  padding: 20px;
+  color: green;
+  border: 5px solid green;
+}
+
+#hero a:hover {
+  color: white;
+  background: green;
+}
+
+
+/* 3 column */
+
+.three-col {
+  display: inline-block;
+  outline: 1px solid orange;
+  padding: 10px;
+  margin: 10px 0;
+  width: 30%;
+  text-align: center;
+}
+
+
+/* footer */
+
+footer {
+  background: green;
+  text-align: center;
+  padding: 20px;
+}
