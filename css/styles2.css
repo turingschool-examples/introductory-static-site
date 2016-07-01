@@ -1,1 +1,66 @@
-  
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+header {
+  background: #92E0E5;
+  height: 50px;
+}
+
+header nav {
+  float: right;
+}
+
+header h1 {
+  float: left;
+  text-indent: -9999px;
+  background: url('../images/dog-icon.svg') no-repeat;
+  float: left;
+  height: 35px;
+  width: 35px;
+  margin-top: 8px;
+}
+
+nav li {
+  display: inline-block;
+  padding: 17px 10px;
+}
+
+nav li:hover {
+  background: #3F8DA7;
+  color: white;
+}
+
+#hero {
+  background: url('../images/park.jpg') no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 50px 0;
+}
+
+#hero img {
+  border: 5px solid #3F8DA7;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+#hero h2 {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+#hero a {
+  background: white;
+  border: 5px solid #3F8DA7;
+  color: #3F8DA7;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+#hero a:hover {
+  padding: 5px 10px;
+  background: #3F8DA7;
+  color: white;
+}
