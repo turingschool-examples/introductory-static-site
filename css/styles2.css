@@ -2,6 +2,8 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+/* header */
+
 header {
   background: #92E0E5;
   height: 50px;
@@ -21,6 +23,8 @@ header h1 {
   margin-top: 8px;
 }
 
+/* primary navigation */
+
 nav li {
   display: inline-block;
   padding: 17px 10px;
@@ -31,11 +35,14 @@ nav li:hover {
   color: white;
 }
 
+/* hero unit */
+
 #hero {
   background: url('../images/park.jpg') no-repeat;
   background-size: cover;
   text-align: center;
   padding: 50px 0;
+  margin-bottom: 50px;
 }
 
 #hero img {
@@ -51,7 +58,9 @@ nav li:hover {
   margin-bottom: 25px;
 }
 
-#hero a {
+/* links */
+
+.btn {
   background: white;
   border: 5px solid #3F8DA7;
   color: #3F8DA7;
@@ -59,8 +68,56 @@ nav li:hover {
   text-decoration: none;
 }
 
-#hero a:hover {
+.btn:hover {
   padding: 5px 10px;
   background: #3F8DA7;
   color: white;
+}
+
+.link {
+  color: white
+}
+
+.link:hover {
+  color: #92E0E5;
+}
+
+/* columns */
+
+.three-col {
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  margin: 0 10px;
+}
+
+.three-col img {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  margin: 25px 0;
+}
+
+.three-col p {
+  margin-bottom: 40px;
+}
+
+/* footer */
+
+footer {
+    background: #3F8DA7;
+    color: white;
+    margin-top: 50px;
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer ul {
+  margin: 50px 0;
+}
+
+footer li {
+  display: inline-block;
+  margin: 0 25px;
 }
