@@ -254,7 +254,7 @@ If we look at our comp we see that we actually have a logo where the `<h1>` text
 header h1 {
   float: left;
   text-indent: -9999px;
-  background: url(images/dog-icon.svg) no-repeat;
+  background: url('../images/dog-icon.svg') no-repeat;
   height: 35px;
   width: 35px;
   margin-top: 8px;
@@ -714,6 +714,6 @@ A few things we can do now to tighten our layout up:
 
 * have the main navigation in the header link to the appropriate columns of content in the page
 * update the color and size of the headers in the columns
-* Add a thin, darker bottom border to the header bar
+* Add a thin, darker teal bottom border to the header bar
 
 Take a crack at these final layout tweaks, and give yourself a big pat on the back! You just made a page from scratch with HTML and CSS.
