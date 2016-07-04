@@ -1,5 +1,5 @@
 ---
-title: Intro to HTML and CSS Static Site Project
+title: HTML and CSS fundamentals static site
 length:
 tags: html, css
 ---
@@ -10,18 +10,11 @@ By the end of this tutorial, you will know/be able to:
 
 * Have an understanding of how to write well constructed, semantic HTML
 * Understand how to control the positioning of HTML elements on your page using CSS
-* Gain clarity no how CSS is used to create your layout
+* Gain clarity about how CSS is used to create and style your layout
 
 ### Building a Static Site
 
-#### Hook: <5 min
-
-HTML and CSS are used everywhere on the web, and engaging and appealing pages can be built with a surprisingly small amount of code.
-
-#### Opening: 1-2 min
-
-* What is this lesson about?
-* What will students know or be able to do by the end of the class? What are the goals?
+HTML and CSS are used everywhere on the web, and engaging and appealing pages can be built with a surprisingly small amount of code. In this tutorial we will build a liquid layout, one-page static site to help solidify our HTML and CSS fundamentals.
 
 #### Start with the Structure
 
@@ -30,13 +23,14 @@ Just like you wouldn't build a house without framing the walls first, it's a goo
 Before we write any code, we need to set up our directory structure. Make a new project folder called "dog-party", and inside of that put the following things:
 
 * a file named `index.html`
+* a folder called "images" to hold all the images for the site
+* a folder called "styles" that contains:
 * a file called `styles.css`
 * a file called `reset.css`
-* a folder called "images" to hold all the images for the site
 
 Now, let's take a look at the site we want to build:
 
-![Image of Dog Party Site](../images/example/main-page.png)
+![Image of Dog Party Site](images/example/main-page.png)
 
 From this screen grab we can see that we have the following elements:
 
@@ -128,7 +122,7 @@ Now that we have our roadmap, let's add a little placeholder content so we can o
 
 Open your index.html file in your browser and take a look. It doesn't look like much yet, but we can see that the content hierarchy and structure makes sense.
 
-![Image of Dog Party Site](../images/example/road-map.png)
+![Image of Dog Party Site](images/example/road-map.png)
 
 Looking at this raw HTML, we can see that the browser has applied default styles for us and the headers and paragraphs are different sizes and font weights. That was nice of them! But, as we write our own styles for this page, these defaults could get in our way and make us write extra code. So, let's pull in a reset file to zero out these styles so we can start with a blank slate. While you can write your own as you gain experience and learn what your preferences are, there are several great open source reset file options we can use to get us up and running quickly. [Go to this site](http://meyerweb.com/eric/tools/css/reset/), and copy the code for the reset file (remember to include the lines of code crediting Eric Meyers, the developer who wrote this! Always give credit where credit is due). Now, back in your project, paste this code into `reset.css`. Since this code is clearing out all the default styles for us, it's a good idea to keep it organized in it's own file. That way we can keep our `styles.css` file dedicated to the new styles we write.
 
@@ -136,7 +130,7 @@ Back in the browser, refresh you page. What do you see?
 
 Huh. It looks the same. Why isn't the reset file doing anything?
 
-We haven't connected our HTML and our CSS! It's an easy fix. In the `<head>` tag of our site, let's add the link to the CSS file:
+Because we haven't connected our HTML and our CSS yet. It's an easy fix. In the `<head>` tag of our site, let's add the link to the CSS file:
 
 ```HTML
 <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -148,7 +142,7 @@ Now refresh your page again. All the text should be the same size now! That mean
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 ```
 
-We put the link to `styles.css` after `reset.css` because if we put `reset.css` after, it would cancel out many of our styles! That's an example of the "casacade" in CSS. The last style specified for something will be what the browser uses (it cascades down to the last style), so if the reset file is put after the styles you write, its styles will take precedence over yours.
+We put the link to `styles.css` after `reset.css` because if we put `reset.css` after, it would cancel out many of our styles! That's an example of the "cascade" in CSS. The last style specified for something will be what the browser uses (it cascades down to the last style), so if the reset file is put after the styles you write, its styles will take precedence over yours.
 
 *Note* it's important to put the link to the stylesheet in the  `<head>` tag and not the `<header>` tag. The `<head>` tag is where the metadata for the page goes, which means things like links to stylesheets, fonts, and our page title live there but actual content for the user -- like the navigation elements in our `<header>` -- does not.
 
@@ -162,20 +156,20 @@ body {
 
 Refresh your browser and you should see a very bright page.
 
-![Image of Dog Party Site](../images/example/magenta-page.png)
+![Image of Dog Party Site](images/example/magenta-page.png)
 
 So, now that we know our style sheet is linked up correctly, let's begin styling our page. Go ahead and get rid of that magenta background and let's get started. We'll start at the top and work our way down.
 
 ##### Changing Fonts
 
-First, let's pull in the font we want to use. Let's use [Raleway](https://fonts.google.com/?query=raleway&selection.family=Raleway). To use this font in our site, we only need to add two lines of code. One goes in the `<head>` of our index.html file to pull in the fonts (like we pull in our stylesheets) and the other goes in our styles.css to specify where in our site we want this new font to be applied:
+First, we'll pull in the font we want to use. Let's use [Raleway](https://fonts.google.com/?query=raleway&selection.family=Raleway). To use this font in our site, we only need to add two lines of code. One goes in the `<head>` of our index.html file to pull in the fonts (like we pull in our stylesheets) and the other goes in our styles.css to specify where in our site we want this new font to be applied:
 
 Add this in the `<head>` of index.html
 ```html
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 ```
 
-and this in styles.css (we specify the font in the `<body>` tag because we want this to be the font that is used for all text on our page):
+and this in styles.css (we specify the font on the `<body>` tag because we want this to be the font that is used for all text on our page):
 
 ```css
 body {
@@ -205,7 +199,7 @@ We've written the html structure for this section, let's take a look at it:
 </header>
 ```
 
-We know that we want to have a colored header bar, let's start there. Let's do that in our CSS.
+We know that we want to have a colored header bar, let's start there. Add this to your CSS.
 
 ```CSS
 header {
@@ -213,7 +207,7 @@ header {
 }
 ```
 
-Great! Our header bar is teal now. Next, we know that we want the three links to be on the far right side of the header bar. They're currently still in the normal page flow, and over on the left side under the `<h1>` text. Let's go ahead and move them over. There are several different ways to accomplish this, but we'll use a float to move the `<nav>` element holding our navigation links over to the right. This will pull the `<nav>` out of the normal page flow and push it over to the right. We want to target the `<nav>` that is within the `<header>`, and we write it like this (*remember: refresh your browser regularly as you work to make sure that the styles you write are doing what you intend and expect them to do!*):
+Great! Our header bar is teal now. Next, we know that we want the three links to be on the far right side of the header bar. They're currently still in the normal page flow, and over on the left side under the `<h1>` text. Let's go ahead and move them over to the right. There are several different ways to accomplish this, but we'll use a float to move the `<nav>` element holding our navigation links over to the right. This will pull the `<nav>` out of the normal page flow and push it over to the right. We want to target the `<nav>` that is within the `<header>`, and we write it like this (*remember: refresh your browser regularly as you work to make sure that the styles you write are doing what you intend and expect them to do!*):
 
 ```CSS
 header nav {
@@ -235,7 +229,7 @@ header nav {
 }
 ```
 
-Great! Now let's get those `<li>` elements to be in a row instead of stacked on top of each other. Like we found with with our h1, `<li>` is a block level element. A simple approach to make them align horizontally rather than vertically is to change the `<li>` from block level elements (the default) to inline elements. This will allow them to all sit next to each other on the same row. Here's the code:
+Great! Now let's get those `<li>` elements to be in a row instead of stacked on top of each other. Like we found with with our h1, `<li>` is a block level element. A simple approach to make them align horizontally rather than vertically is to change the `<li>` tags from block level elements (the default) to inline elements. This will allow them to all sit next to each other on the same row. Here's the code:
 
 ```CSS
 header h1 {
@@ -251,7 +245,7 @@ nav li {
 }
 ```
 
-If we look at our comp we see that we actually have a logo where the `<h1>` text is. We can do this with an approach called "image text replacement". In short, this approach allows you to keep the search engine-friendly h1 text, but swap it out for an image. You can read about the ins and out of this approach [in this oldie but goodie article by Chris Coyier](https://css-tricks.com/header-text-image-replacement/). Let's look at the code and then walk through it:
+If we look at our comp we see that we actually have a logo where the `<h1>` text is. We can do this with an approach called "image text replacement". In short, this approach allows you to keep the search engine-friendly h1 text, but swaps it out for an image. You can read about the ins and outs of this approach [in this old but good article by Chris Coyier](https://css-tricks.com/header-text-image-replacement/). Let's look at the code and then walk through it:
 
 ```css
 header h1 {
@@ -264,9 +258,9 @@ header h1 {
 }
 ```
 
-We still have our `float: left`, but we've added a few more lines: `text-indent` is shoving the actual text of our h1 negative nine thousand nine hundred and ninety nine pixels way off to the left of the screen. We can't see it as users now, but it's still a part of the site content so we get the SEO benefits. Next, we set our dog-icon.svg as a *background image*. Finally, we set the width and height of the h1 itself, so we have a nicely sized icon. Then, we add 8px of margin to the top of the h1 to vertically center the icon in the header.
+We still have our `float: left`, but we've added a few more lines: `text-indent` is shoving the actual text of our h1 negative nine thousand nine hundred and ninety nine pixels off the left side of the screen. We can't see it as users now, but it's still a part of the site content so we get the SEO benefits. Next, we set our dog-icon.svg as a *background image*. We set the width and height of the h1 itself, so we have a nicely sized icon. Finally, we add 8px of margin to the top of the h1 to vertically center the icon in the header.
 
-That looks pretty close! We just need to get those `<li>` elements vertically centered in the header. We can do that by adding padding to them! The code looks like this:
+That looks pretty close! We just need to get those `<li>` elements vertically centered in the header. We can do that by adding padding to them. The code looks like this:
 
 ```css
 nav li {
@@ -277,7 +271,7 @@ nav li {
 
 We just added 17px of padding to the top and bottom of each li, and 10px padding to the left and right sides. This centered them vertically in the header and gave them a little breathing room.
 
-Let's add a hover to those li elements so our users get some visual feedback as they mouse over them.We'll make the background and text color on the `<li>` change on `:hover`. Here's the code:
+Let's add a hover to those li elements so our users get some visual feedback as they mouse over them. We'll make the background and text color on the `<li>` change on `:hover`. Here's the code:
 
 ```css
 nav li {
@@ -419,9 +413,10 @@ All that's left is styling our CTA link:
 
 Refresh again to make sure that everything looks as expected. If it does, our hero unit is complete!
 
+
 ##### Making 3 Columns
 
-In our last section on content, we have three columns of content that sit side by side. If we look at them, we see that they all have the same structure, style, and content organization. They consist of a title, an image, a block of text, and a button. We know that each column will have the same structure with different content, so we will use the same base HTML and styles for all three and then simply plug in the unique content for each. This lets us keep our code DRY and avoid duplication, and gives us the flexibility to easily reuse these styles elsewhere in our site down the road. Note that we use the class `three-col` on all three of the columns: we do this because we want to apply specific styles that will make these blocks of content into three columns, and we want to use *the same styles* to accomplish that. We don't apply the styles directly to the `<article>` tag because it's very likely that at some point in the future our site could have other `<article>` tags that are not in a three column grid, and it's possibly that we would want use a different tag in a three column grid -- we could put this class on a `<section>`, `<div>`, or other tag and get the same three column layout results. It is good practice to consider long-term adaptability and flexibility as you write your HTML and CSS.
+In this content section, we have three columns that sit side by side. If we look at them, we see that they all have the same structure, style, and content organization. They consist of a title, an image, a block of text, and a button. We know that each column will have the same structure with different content, so we will use the same base HTML and styles for all three and then simply plug in the unique content for each. This lets us keep our code DRY and avoid duplication, and gives us the flexibility to easily reuse these styles elsewhere in our site down the road. Note that we use the class `three-col` on all three of the columns: we do this because we want to apply specific styles that will make these blocks of content into three columns, and we want to use *the same styles* to accomplish that on all three. We don't apply the styles directly to the `<article>` tag because it's very likely that at some point in the future our site could have other `<article>` tags that are not in a three column grid, and we might want to use a different tag in a three column grid -- we could put this class on a `<section>`, `<div>`, or other tag and get the same three column layout results. It is good practice to consider long-term flexibility as you write your HTML and CSS.
 
 Let's update our HTML structure so all three columns are the same:
 
@@ -483,7 +478,7 @@ If we refresh our page now, not a whole lot has changed. Time to put in content!
   </section>
 ```
 
-Now when we refresh the page we see that we have all our content, but it's looking pretty rough. The three articles are stacked on top of each other, all the contents are left justified, and our paragraph text is stretching the full width of the screen. Let's start fixing this. We'll start by making our columns actually be columns. Time to utilize our `three-col` class on the opening article tags -- we can add positioning styles, and have flexibility if we at some point want to have other elements on the page be in a three column layout. So, in our CSS we'll write the following:
+Now when we refresh the page we see that we have all our content, but it's looking pretty rough. The three articles are stacked on top of each other, all the contents are left justified, and our paragraph text is stretching the full width of the screen. Let's start fixing this. We'll start by making our columns actually be columns. Time to utilize our `three-col` class on the opening article tags -- we can add positioning styles, and have flexibility if we at some point want to have other elements on the page be in a three column layout. In our CSS we'll write the following:
 
 ```css
 .three-col {
@@ -504,11 +499,12 @@ Refresh your page and we'll see that this got our content into columns, but it w
 }
 ```
 
-Let's get the images to be a consistent size, put that fancy border radius on them to make them circles, and add some margin to top and the bottom so the above and below the image has some breathing room.
+Let's get the images to be a consistent size, put that fancy border radius on them to make them circles and give them a teal border, and add some margin to top and the bottom so the above and below the image has some breathing room.
 
 ```css
 .three-col img {
   border-radius: 50%;
+  border: 3px solid #3F8DA7;
   height: 200px;
   width: 200px;
   margin: 25px 0;
@@ -593,7 +589,7 @@ Let's add our content:
     <li><img src="imgages/instagram.svg"/></li>
     <li><img src="images/linkedin.svg"/></li>
   </ul>
-  <a href="" target="_blank">See this on GitHub</a>
+  <a href="https://github.com/turingschool-examples/introductory-static-site" target="_blank">See this on GitHub</a>
 </footer>
 ```
 
@@ -625,7 +621,7 @@ footer li {
 }
 ```
 
-We're almost done, but our link has the CTA button styles because we applied them to all `<a>` tags. We don't want that style of link here in our footer. A better, more reusable solution would be to apply to CTA button styles to a class. This will allow us to put that class on `<a>` tags that we want to be styled as buttons, and have another class for basic link styles that we can use in our footer.
+We're almost done, but our link has the CTA button styles because we applied them to all `<a>` tags. We don't want our link styled that way here in our footer. A better, more reusable solution would be to apply CTA button styles to a class. This will allow us to put that class on `<a>` tags that we want to be styled as buttons, and have another class for basic link styles that we can use in our footer.
 
 Let's do a little refactoring of our CSS.
 
@@ -692,7 +688,7 @@ Back in our footer, our `<a>` is looking closer to what we want. Let's add a cla
 </footer>
 ```
 
-Our CSS will look like this:
+The CSS for our basic link styles will look like this:
 
 ```css
 .link {
