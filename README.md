@@ -96,9 +96,9 @@ Now that we have our roadmap, let's add a little placeholder content so we can o
       <h1>Dog Party!</h1>
       <nav>
         <ul>
-          <li>one</li>
-          <li>two</li>
-          <li>three</li>
+          <li>How</li>
+          <li>What</li>
+          <li>Facts</li>
         </ul>
       </nav>
     </header>
@@ -108,9 +108,9 @@ Now that we have our roadmap, let's add a little placeholder content so we can o
     </section>
 
     <section>
-      <article>one</article>
-      <article>two</article>
-      <article>three</article>
+      <article>How</article>
+      <article>What</article>
+      <article>Facts</article>
     </section>
 
     <footer>
@@ -191,9 +191,9 @@ We've written the html structure for this section, let's take a look at it:
   <h1>Dog Party!</h1>
   <nav>
     <ul>
-      <li>one</li>
-      <li>two</li>
-      <li>three</li>
+      <li>How</li>
+      <li>What</li>
+      <li>Facts</li>
     </ul>
   </nav>
 </header>
@@ -204,6 +204,9 @@ We know that we want to have a colored header bar, let's start there. Add this t
 ```CSS
 header {
   background: #92E0E5;
+  color: white;
+  height: 50px;
+  padding: 0 25px;
 }
 ```
 
@@ -302,9 +305,9 @@ As a first step, let's add an `id` of "hero" to the `<section>` that will be wra
     <h1>Dog Party!</h1>
     <nav>
       <ul>
-        <li>one</li>
-        <li>two</li>
-        <li>three</li>
+        <li>How</li>
+        <li>What</li>
+        <li>Facts</li>
       </ul>
     </nav>
   </header>
@@ -314,9 +317,9 @@ As a first step, let's add an `id` of "hero" to the `<section>` that will be wra
   </section>
 
   <section>
-    <article>one</article>
-    <article>two</article>
-    <article>three</article>
+    <article>How</article>
+    <article>What</article>
+    <article>Facts</article>
   </section>
 
   <footer>
@@ -411,7 +414,7 @@ All that's left is styling our CTA link:
 }
 ```
 
-Refresh again to make sure that everything looks as expected. If it does, our hero unit is complete!
+Refresh again to make sure that everything looks as expected. If it does, our hero unit is complete.
 
 
 ##### Making 3 Columns
@@ -423,21 +426,21 @@ Let's update our HTML structure so all three columns are the same:
 ```html
   <section>
     <article class="three-col">
-      <h3>One</h3>
+      <h3>How</h3>
       <img src="" alt="first image"/>
       <p></p>
       <a href=""></a>
     </article>
 
     <article class="three-col">
-      <h3>Two</h3>
+      <h3>What</h3>
       <img src="" alt="second image"/>
       <p></p>
       <a href=""></a>
     </article>
 
     <article class="three-col">
-      <h3>Three</h3>
+      <h3>Facts</h3>
       <img src="" alt="third image"/>
       <p></p>
       <a href=""></a>
@@ -450,7 +453,7 @@ If we refresh our page now, not a whole lot has changed. Time to put in content!
 ```html
   <section>
     <article class="three-col">
-      <h3>One</h3>
+      <h3>How</h3>
       <img src="images/dog2-sq.jpg" alt="first image"/>
       <p>
         Nap all day Gate keepers of hell yet stares at human while pushing stuff off a table. Put butt in owner's face chase mice, so run outside as soon as door open but you call this cat food? stare at the wall, play with food and get confused by dust.
@@ -459,7 +462,7 @@ If we refresh our page now, not a whole lot has changed. Time to put in content!
     </article>
 
     <article class="three-col">
-      <h3>Two</h3>
+      <h3>What</h3>
       <img src="images/dog3-sq.jpg" alt="second image"/>
       <p>
         Soft kitty warm kitty little ball of furr. Hunt anything that moves meowing non stop for food stand in front of the computer screen knock dish off table head butt cant eat out of my own dish, then cats take over the world hide when guests come over.
@@ -468,7 +471,7 @@ If we refresh our page now, not a whole lot has changed. Time to put in content!
     </article>
 
     <article class="three-col">
-      <h3>Three</h3>
+      <h3>Facts</h3>
       <img src="images/dog4-sq.jpg" alt="third image"/>
       <p>
         Destroy the blinds chase imaginary bugs, so lie on your belly and purr when you are asleep. Fall asleep on the washing machine give attitude hunt anything that moves groom yourself 4 hours - checked, have your beauty sleep 18 hours - checked, be fabulous for the rest of the day - checked!
@@ -586,7 +589,7 @@ Let's add our content:
   <ul>
     <li><img src="images/facebook.svg"/></li>
     <li><img src="images/twitter.svg"/></li>
-    <li><img src="imgages/instagram.svg"/></li>
+    <li><img src="images/instagram.svg"/></li>
     <li><img src="images/linkedin.svg"/></li>
   </ul>
   <a href="https://github.com/turingschool-examples/introductory-static-site" target="_blank">See this on GitHub</a>
@@ -600,8 +603,8 @@ Let's start styling:
 footer {
     background: #3F8DA7;
     color: white;
-    margin-top: 50px;
-    padding: 25px 0;
+    margin-top: 40px;
+    padding: 20px 0;
     text-align: center;
 }
 ```
@@ -612,7 +615,7 @@ Let's get our social media icons positioned in a row next.
 
 ```css
 footer ul {
-  margin: 50px 0;
+  margin: 40px 0;
 }
 
 footer li {
@@ -699,3 +702,18 @@ The CSS for our basic link styles will look like this:
   color: #92E0E5;
 }
 ```
+
+
+### Your Turn: Tightening Up The Page
+
+Our page is more or less done, but we can go back and polish it up a little bit. Let's see what we have:
+
+![Image of Dog Party Site](images/example/full-layout.png)
+
+A few things we can do now to tighten our layout up:
+
+* have the main navigation in the header link to the appropriate columns of content in the page
+* update the color and size of the headers in the columns
+* Add a thin, darker bottom border to the header bar
+
+Take a crack at these final layout tweaks, and give yourself a big pat on the back! You just made a page from scratch with HTML and CSS.

@@ -4,98 +4,130 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-.content {
-  width: 90%;
-  margin: auto;
-}
-
-
-/* main nav */
+/* header */
 
 header {
-  background: yellow;
-  height: 75px;
+  background: #92E0E5;
+  color: white;
+  height: 50px;
+  padding: 0 25px;
 }
 
-nav h1 {
-  text-indent: -9999px;
-  background: url(images/dog-icon.svg) no-repeat;
-  float: left;
-  height: 45px;
-  width: 45px;
-  margin-top: 12px;
-}
-
-
-nav ul {
+header nav {
   float: right;
 }
 
+header h1 {
+  float: left;
+  text-indent: -9999px;
+  background: url('../images/dog-icon.svg') no-repeat;
+  float: left;
+  height: 35px;
+  width: 35px;
+  margin-top: 8px;
+}
+
+/* primary navigation */
 
 nav li {
   display: inline-block;
-  padding: 30px 15px;
+  padding: 17px 10px;
+}
+
+
+nav a {
+  color: white;
+  text-decoration: none;
 }
 
 nav li:hover {
-  background: orange;
+  background: #3F8DA7;
 }
-
 
 /* hero unit */
 
-
 #hero {
-  background: url(images/park.jpg) no-repeat;
+  background: url('../images/park.jpg') no-repeat;
   background-size: cover;
-  width: 100%;
   text-align: center;
   padding: 50px 0;
-}
-
-#hero h1{
-  font-size: 36px;
   margin-bottom: 50px;
 }
 
 #hero img {
+  border: 5px solid #3F8DA7;
   border-radius: 50%;
-  border: 5px solid green;
   display: block;
   margin: auto;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
-#hero a {
-  text-decoration: none;
+#hero h2 {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+/* links */
+
+.btn {
   background: white;
-  padding: 20px;
-  color: green;
-  border: 5px solid green;
+  border: 5px solid #3F8DA7;
+  color: #3F8DA7;
+  padding: 5px 10px;
+  text-decoration: none;
 }
 
-#hero a:hover {
+.btn:hover {
+  padding: 5px 10px;
+  background: #3F8DA7;
   color: white;
-  background: green;
 }
 
+.link {
+  color: white
+}
 
-/* 3 column */
+.link:hover {
+  color: #92E0E5;
+}
+
+/* columns */
 
 .three-col {
-  display: inline-block;
-  outline: 1px solid orange;
-  padding: 10px;
-  margin: 10px 0;
   width: 30%;
+  display: inline-block;
   text-align: center;
+  vertical-align: top;
+  margin: 0 10px;
 }
 
+.three-col img {
+  border-radius: 50%;
+  border: 3px solid #3F8DA7;
+  height: 200px;
+  width: 200px;
+  margin: 25px 0;
+}
+
+.three-col p {
+  margin-bottom: 40px;
+}
 
 /* footer */
 
 footer {
-  background: green;
-  text-align: center;
-  padding: 20px;
+    background: #3F8DA7;
+    color: white;
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer ul {
+  margin: 40px 0;
+}
+
+footer li {
+  display: inline-block;
+  margin: 0 25px;
 }
