@@ -24,7 +24,7 @@ Before we write any code, we need to set up our directory structure. Make a new 
 
 * a file named `index.html`
 * a folder called "images" to hold all the images for the site
-* a folder called "styles" that contains:
+* a folder called "css" that contains:
 * a file called `styles.css`
 * a file called `reset.css`
 
@@ -124,7 +124,11 @@ Open your index.html file in your browser and take a look. It doesn't look like 
 
 ![Image of Dog Party Site](images/example/road-map.png)
 
-Looking at this raw HTML, we can see that the browser has applied default styles for us and the headers and paragraphs are different sizes and font weights. That was nice of them! But, as we write our own styles for this page, these defaults could get in our way and make us write extra code. So, let's pull in a reset file to zero out these styles so we can start with a blank slate. While you can write your own as you gain experience and learn what your preferences are, there are several great open source reset file options we can use to get us up and running quickly. [Go to this site](http://meyerweb.com/eric/tools/css/reset/), and copy the code for the reset file (remember to include the lines of code crediting Eric Meyers, the developer who wrote this! Always give credit where credit is due). Now, back in your project, paste this code into `reset.css`. Since this code is clearing out all the default styles for us, it's a good idea to keep it organized in it's own file. That way we can keep our `styles.css` file dedicated to the new styles we write.
+Looking at this raw HTML, we can see that the browser has applied default styles for us and the headers and paragraphs are different sizes and font weights. That was nice of them! But, as we write our own styles for this page, these defaults could get in our way and make us write extra code. So, let's pull in a reset file to zero out these styles so we can start with a blank slate.  
+
+While you can write your own as you gain experience and learn what your preferences are, there are several great open source reset file options we can use to get us up and running quickly. [Go to this site](http://meyerweb.com/eric/tools/css/reset/), and copy the code for the reset file (remember to include the lines of code crediting Eric Meyers, the developer who wrote this! Always give credit where credit is due).  
+
+Now, back in your project, paste this code into `reset.css`. Since this code is clearing out all the default styles for us, it's a good idea to keep it organized in it's own file. That way we can keep our `styles.css` file dedicated to the new styles we write.
 
 Back in the browser, refresh you page. What do you see?
 
@@ -210,7 +214,9 @@ header {
 }
 ```
 
-Great! Our header bar is teal now. Next, we know that we want the three links to be on the far right side of the header bar. They're currently still in the normal page flow, and over on the left side under the `<h1>` text. Let's go ahead and move them over to the right. There are several different ways to accomplish this, but we'll use a float to move the `<nav>` element holding our navigation links over to the right. This will pull the `<nav>` out of the normal page flow and push it over to the right. We want to target the `<nav>` that is within the `<header>`, and we write it like this (*remember: refresh your browser regularly as you work to make sure that the styles you write are doing what you intend and expect them to do!*):
+Great! Our header bar is teal now. Next, we know that we want the three links to be on the far right side of the header bar. They're currently still in the normal page flow, and over on the left side under the `<h1>` text. Let's go ahead and move them over to the right.  
+
+There are several different ways to accomplish this, but we'll use a float to move the `<nav>` element holding our navigation links over to the right. This will pull the `<nav>` out of the normal page flow and push it over to the right. We want to target the `<nav>` that is within the `<header>`, and we write it like this:
 
 ```CSS
 header nav {
@@ -218,9 +224,13 @@ header nav {
 }
 ```
 
+*remember: refresh your browser regularly as you work to make sure that the styles you write are doing what you intend and expect them to do!*
+
 When we reload the page we see that something still not quite right. The `<nav>` has been pushed over to the right, but now it has been pushed down out of the header. That's weird, what's going on?
 
-If we inspect the `<h1>` in the browser using our developer tools, we see that it's taking up the entire width of the page. That is why the `<nav>` is being pushed down out of the header. This is happening because `<h1>` tags are *block level* elements, so by default they will fill the entire row that they are on. We can solve this by floating our header's h1 to the left. It won't look that different since `float: left` will keep the h1 on the left side of the screen, but the reason this helps us is because the float pulls the h1 out of the normal page flow and allows us to have two elements on the same row. Now both the h1 and the nav will be aligned nicely and inside of the header bar. Our CSS for the `<nav>` and `<h1>` looks like this:
+If we inspect the `<h1>` in the browser using our developer tools, we see that it's taking up the entire width of the page. That is why the `<nav>` is being pushed down out of the header. This is happening because `<h1>` tags are *block level* elements, so by default they will fill the entire row that they are on.  
+
+We can solve this by floating our header's h1 to the left. It won't look that different since `float: left` will keep the h1 on the left side of the screen, but the reason this helps us is because the float pulls the h1 out of the normal page flow and allows us to have two elements on the same row. Now both the h1 and the nav will be aligned nicely and inside of the header bar. Our CSS for the `<nav>` and `<h1>` looks like this:
 
 ```CSS
 header h1 {
@@ -248,7 +258,7 @@ nav li {
 }
 ```
 
-If we look at our comp we see that we actually have a logo where the `<h1>` text is. We can do this with an approach called "image text replacement". In short, this approach allows you to keep the search engine-friendly h1 text, but swaps it out for an image. You can read about the ins and outs of this approach [in this old but good article by Chris Coyier](https://css-tricks.com/header-text-image-replacement/). Let's look at the code and then walk through it:
+If we look at our example website we see that we actually have a logo where the `<h1>` text is. We can do this with an approach called "image text replacement". In short, this approach allows you to keep the search engine-friendly h1 text, but swaps it out for an image. You can read about the ins and outs of this approach [in this old but good article by Chris Coyier](https://css-tricks.com/header-text-image-replacement/). Let's look at the code and then walk through it:
 
 ```css
 header h1 {
@@ -261,7 +271,7 @@ header h1 {
 }
 ```
 
-We still have our `float: left`, but we've added a few more lines: `text-indent` is shoving the actual text of our h1 negative nine thousand nine hundred and ninety nine pixels off the left side of the screen. We can't see it as users now, but it's still a part of the site content so we get the SEO benefits. Next, we set our dog-icon.svg as a *background image*. We set the width and height of the h1 itself, so we have a nicely sized icon. Finally, we add 8px of margin to the top of the h1 to vertically center the icon in the header.
+We still have our `float: left`, but we've added a few more lines: `text-indent` is shoving the actual text of our h1 negative nine thousand nine hundred and ninety nine pixels off the left side of the screen. We can't see it as users now, but it's still a part of the site content so we get the SEO benefits. Next, we set our `dog-icon.svg` as a *background image*. We set the width and height of the h1 itself, so we have a nicely sized icon. Finally, we add 8px of margin to the top of the h1 to vertically center the icon in the header.
 
 That looks pretty close! We just need to get those `<li>` elements vertically centered in the header. We can do that by adding padding to them. The code looks like this:
 
@@ -285,6 +295,7 @@ nav li {
 nav li:hover {
   background: #3F8DA7;
   color: white;
+  cursor: pointer;
 }
 ```
 
@@ -350,7 +361,13 @@ If we refresh our page, it doesn't look great. But now that we have our content 
 }
 ```
 
-That looks much better! But what is this CSS doing? On the first line we set our background image to be `park.jpg` and say that it should not repeat (by default, background images repeat, or tile, from left to right, top to bottom). On the next line `background-size: cover` tells the image to fully fill the space available automatically, which means that you won't get awkward white space on the sides or bottom as you move between large and small screen sizes. `text-align: center` centers all the content inside of our `#hero` section, including text *and* images, so our content will be neatly aligned in the center of the page. And finally, `padding: 50px 0` sets internal padding of 50px at the top and bottom of the `#hero` section so the content inside has some breathing room and doesn't feel too crowded, and a `margin-bottom` of 50px gives the content below our hero unit some space.
+That looks much better! But what is this CSS doing? On the first line we set our background image to be `park.jpg` and say that it should not repeat (by default, background images repeat, or tile, from left to right, top to bottom).  
+
+On the next line `background-size: cover` tells the image to fully fill the space available automatically, which means that you won't get awkward white space on the sides or bottom as you move between large and small screen sizes.  
+
+`text-align: center` centers all the content inside of our `#hero` section, including text *and* images, so our content will be neatly aligned in the center of the page.  
+
+And finally, `padding: 50px 0` sets internal padding of 50px at the top and bottom of the `#hero` section so the content inside has some breathing room and doesn't feel too crowded, and a `margin-bottom` of 50px gives the content below our hero unit some space.
 
 Hmm. Something isn't right. Why are the primary image and CTA link on the same line? If we inspect those elements in the browser, we see that neither is a block-level element. In fact, both `<img>` and `<a>` tags are inline by default. We can easily fix this by setting the `<img>` to `display: block`.
 
@@ -419,7 +436,11 @@ Refresh again to make sure that everything looks as expected. If it does, our he
 
 ##### Making 3 Columns
 
-In this content section, we have three columns that sit side by side. If we look at them, we see that they all have the same structure, style, and content organization. They consist of a title, an image, a block of text, and a button. We know that each column will have the same structure with different content, so we will use the same base HTML and styles for all three and then simply plug in the unique content for each. This lets us keep our code DRY and avoid duplication, and gives us the flexibility to easily reuse these styles elsewhere in our site down the road. Note that we use the class `three-col` on all three of the columns: we do this because we want to apply specific styles that will make these blocks of content into three columns, and we want to use *the same styles* to accomplish that on all three. We don't apply the styles directly to the `<article>` tag because it's very likely that at some point in the future our site could have other `<article>` tags that are not in a three column grid, and we might want to use a different tag in a three column grid -- we could put this class on a `<section>`, `<div>`, or other tag and get the same three column layout results. It is good practice to consider long-term flexibility as you write your HTML and CSS.
+![Three Column Section](images/example/three-cols.png)
+
+In this content section, we have three columns that sit side by side. If we look at them, we see that they all have the same structure, style, and content organization. They consist of a title, an image, a block of text, and a button. We know that each column will have the same structure with different content, so we will use the same base HTML and styles for all three and then simply plug in the unique content for each. This lets us keep our code DRY and avoid duplication, and gives us the flexibility to easily reuse these styles elsewhere in our site down the road.  
+
+Note that we use the class `three-col` on all three of the columns: we do this because we want to apply specific styles that will make these blocks of content into three columns, and we want to use *the same styles* to accomplish that on all three. We don't apply the styles directly to the `<article>` tag because it's very likely that at some point in the future our site could have other `<article>` tags that are not in a three column grid. We might also want to use a different tag in a three column grid down the road -- we could just as easily put this class on a `<section>`, `<div>`, or other tag and get the same three column layout results. It is good practice to consider long-term flexibility as you write your HTML and CSS.
 
 Let's update our HTML structure so all three columns are the same:
 
@@ -481,7 +502,7 @@ If we refresh our page now, not a whole lot has changed. Time to put in content!
   </section>
 ```
 
-Now when we refresh the page we see that we have all our content, but it's looking pretty rough. The three articles are stacked on top of each other, all the contents are left justified, and our paragraph text is stretching the full width of the screen. Let's start fixing this. We'll start by making our columns actually be columns. Time to utilize our `three-col` class on the opening article tags -- we can add positioning styles, and have flexibility if we at some point want to have other elements on the page be in a three column layout. In our CSS we'll write the following:
+Now when we refresh the page we see that we have all our content, but it's looking pretty rough. The three articles are stacked on top of each other, all the content is left justified, and our paragraph text is stretching the full width of the screen. Let's start fixing this. We'll start by making our columns actually be columns. Time to utilize our `three-col` class on the opening article tags -- we can add positioning styles, and have flexibility if we at some point want to have other elements on the page be in a three column layout. In our CSS we'll write the following:
 
 ```css
 .three-col {
@@ -502,7 +523,7 @@ Refresh your page and we'll see that this got our content into columns, but it w
 }
 ```
 
-Let's get the images to be a consistent size, put that fancy border radius on them to make them circles and give them a teal border, and add some margin to top and the bottom so the above and below the image has some breathing room.
+Let's get the images to be a consistent size, put that fancy border radius on them to make them circles, give them a teal border, and add some margin to top and the bottom so the images have some breathing room.
 
 ```css
 .three-col img {
@@ -563,7 +584,9 @@ In your CSS, try removing `#hero` from your current `<a>` styles and refresh you
 
 ##### Making The Footer
 
-The last thing to style is our footer. Let's start by building the HTML structure for this final grouping of content. We see that we have three block of information: a subhead, a collection of social media icons, and a link back to the repo.
+![The Footer](images/example/footer.png)
+
+The last thing to style is our footer. Let's start by building the HTML structure for this final grouping of content. We see that we have three blocks of information: a subhead, a collection of social media icons, and a link back to the repo.
 
 ```html
 <footer>
@@ -609,9 +632,9 @@ footer {
 }
 ```
 
-Refresh your page and you see that we changed our background color, made our text white, tidied up spacing with a top margin and internal top and bottom padding, and centered all the footer content.
+Refresh your page and you see that we changed our background color, made our text white, tidied up spacing with a top margin and internal top and bottom padding, and centered all of the footer content.
 
-Let's get our social media icons positioned in a row next.
+Next, let's get our social media icons positioned in a row.
 
 ```css
 footer ul {
@@ -630,6 +653,7 @@ Let's do a little refactoring of our CSS.
 
 Our current `<a>` tag styles that create our CTA button look will change from this:
 
+(Old CSS)
 ```css
 a {
   background: white;
@@ -646,8 +670,9 @@ a:hover {
 }
 ```
 
-To this:
+To this:  
 
+(New CSS)
 ```css
 .btn {
   background: white;
@@ -664,7 +689,7 @@ To this:
 }
 ```
 
-And add `class="btn"` to the `<a>` tags in our hero unit and columns. Here's what the `<a>` tag in our hero unit will look like:
+Make sure tor remove the styles associated with the `<a>` tags in your `.css` file, and add `class="btn"` to the `<a>` tags in our hero unit and columns. Here's what the `<a>` tag in our hero unit will look like:
 
 ```html
 <section id="hero">
@@ -676,7 +701,7 @@ And add `class="btn"` to the `<a>` tags in our hero unit and columns. Here's wha
 
 Go ahead and add `class="btn"` to the `<a>` tags in our three columns and refresh your page to confirm that our CTA button styles are looking as expected.
 
-Back in our footer, our `<a>` is looking closer to what we want. Let's add a class for basic link styles:
+Back in our footer, our `<a>` is looking closer to what we want. Let's add `class=link` to our footer's anchor tag and then define this is in our `css` for basic link styles:
 
 ```html
 <footer>
