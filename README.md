@@ -740,5 +740,6 @@ A few things we can do now to tighten our layout up:
 * have the main navigation in the header link to the appropriate columns of content in the page
 * update the color and size of the headers in the columns
 * Add a thin, darker teal bottom border to the header bar
+* There are few visual inconsistencies between our site and the original comp. Work on   making adjustments so our site looks the same as the comp.
 
 Take a crack at these final layout tweaks, and give yourself a big pat on the back! You just made a page from scratch with HTML and CSS.
