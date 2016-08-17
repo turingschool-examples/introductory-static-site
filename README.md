@@ -1,4 +1,4 @@
----
+  ---
 title: HTML and CSS fundamentals static site
 length:
 tags: html, css
@@ -38,6 +38,8 @@ From this screen grab we can see that we have the following elements:
 * a hero unit with a full width background image, title, and call to action (CTA) button
 * three columns with sub-headers, secondary content, images, and buttons
 * a footer
+
+Download the images [here](https://drive.google.com/folderview?id=0B_lPnjyMN6-CVFNNbEUwWVZ0Z0k&usp=sharing), and let's get started.
 
 The first thing we'll do is break this layout down into semantic HTML tags to help us clarify how we want to build the page. Let's write up the skeleton HTML so we have a roadmap to follow as we work.
 
